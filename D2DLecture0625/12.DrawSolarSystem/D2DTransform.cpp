@@ -38,7 +38,7 @@ namespace D2DTM
 		
 		const auto T2 = D2D1::Matrix3x2F::Translation(m_position.x, m_position.y);
 
-		m_matrixLocal = P * S * R * T2; // Translation 이 pivot 적용이 안돼서 수정
+		m_matrixLocal = P * S * R * T1 * T2; // Translation 이 pivot 적용이 안돼서 수정
 		//m_matrixLocal = S * R * T2;
 
 		if (m_parent)

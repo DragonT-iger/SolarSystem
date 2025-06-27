@@ -169,13 +169,13 @@ void TransformPracticeScene::AddPlanet(D2D1_POINT_2F localPos, ComPtr<ID2D1Bitma
     if (m_BoxObjects.size() == 0) {
         
 
-        pNewBox->SetPosition(Vec2(localPos.x , localPos.y));
+        pNewBox->SetPosition(Vec2(localPos.x - (rect.right - rect.left) / 2, localPos.y + (rect.bottom - rect.top) / 2));
 
         m_BoxObjects.push_back(pNewBox);
     }
     else {
 
-        pNewBox->SetPosition(Vec2(localPos.x, localPos.y));
+        pNewBox->SetPosition(Vec2(localPos.x - (rect.right - rect.left) / 2, localPos.y + (rect.bottom - rect.top) / 2));
         pNewBox->GetTransform()->SetParent((*m_BoxObjects.front()).GetTransform());
         m_BoxObjects.push_back(pNewBox);
     }
@@ -198,7 +198,7 @@ void TransformPracticeScene::AddSatellite(D2D1_POINT_2F localPos, int index, Com
             BoxObject* pNewBox = new BoxObject(bitmap);
             D2D1_RECT_F rect = pNewBox->GetRect();
             pNewBox->GetTransform()->SetPivotPreset(D2DTM::PivotPreset::Center, { rect.right - rect.left , rect.bottom - rect.top });
-            pNewBox->SetPosition(Vec2(localPos.x, localPos.y));
+            pNewBox->SetPosition(Vec2(localPos.x - (rect.right - rect.left) / 2, localPos.y + (rect.bottom - rect.top) / 2));
             pNewBox->GetTransform()->SetParent((*it)->GetTransform());
             m_BoxObjects.push_back(pNewBox);
             return;
