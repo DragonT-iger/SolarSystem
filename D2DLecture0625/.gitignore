@@ -1,0 +1,16 @@
+# Visual Studio IDE 관련
+.vs/
+
+# x64 빌드 출력 폴더
+x64/
+
+# (선택) 빌드 결과물
+Debug/
+Release/
+*.obj
+*.exe
+*.dll
+
+# (선택) 사용자 설정 파일
+*.user
+*.suo
